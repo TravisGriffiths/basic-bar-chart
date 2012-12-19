@@ -21,3 +21,29 @@ text.mark {
     font-family: sans-serif;
     font-size: 15px;
 }
+
+table, th, td
+{
+    font-family: sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+th.table_title {
+    font-family: sans-serif;
+    font-size: 25px;
+}
+
+tr.town_datum {
+    background-color: #4f81bd;
+}
+
+tr.state_datum {
+    background-color: #c0504d;
+}
+
+#browser_update_notice {
+    font-family: sans-serif;
+    font-size: 10px;
+}

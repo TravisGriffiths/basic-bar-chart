@@ -19,15 +19,26 @@
 <body>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    jQuery(function () {
         bar = new barchart();
-        bar.makeChart(chart_data[67]);
-        bar.makeChart(chart_data[12])
+        bar.makeChart(chart_data[0]);
+        sel = new selectwidget(chart_data);
+        sel.setChart(bar);
+        sel.draw("#select_target");
+        jQuery("#chart_selector").change(function(e) {
+            district_number = jQuery("#chart_selector").find(":selected").attr('value'); //check just under the chart selector
+            bar.makeChart(chart_data[Number(district_number)]);
+        });
     });
 
 </script>
 
 <div id="bar-chart-target"></div>
+<p>
+    <h3>Choose a District: </h3>
+</p>
+<div id="select_target"></div>
+
 
 </body>
 </html>
