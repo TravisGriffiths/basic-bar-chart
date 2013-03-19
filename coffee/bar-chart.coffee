@@ -41,7 +41,7 @@ class BarChart
       return @makeSimpleTable()
 
     if @old_data  #redrawing remove the old chart
-      $("svg.bar_chart").remove()
+      $("svg#bar_chart").remove()
     temp_values = []
     temp_values.push(value.current) for value in @data.values
     chart_width = 800
@@ -59,7 +59,7 @@ class BarChart
     #First insert the SVG itself
     svg = d3.select("#bar-chart-target")
       .append("svg")
-      .classed("bar_chart", true)
+      .attr("id", "bar_chart")
       .attr("width", chart_width)
       .attr("height", chart_height)
 

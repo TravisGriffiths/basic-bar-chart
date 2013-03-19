@@ -83,6 +83,7 @@
     BarChart.prototype.draw = function() {
       /*
           Check if this browser can render SVGs, all post IE8 browsers should manage this
+          If IE8 or before, do the simple table render instead.
       */
 
       var bar_space, bar_width, chart_bottom_margin, chart_height, chart_left_margin, chart_right_margin, chart_top_margin, chart_width, chart_working_height, current_tick, svg, temp_values, ticks, top_label, value, value_multiple, _i, _len, _ref;
@@ -90,7 +91,7 @@
         return this.makeSimpleTable();
       }
       if (this.old_data) {
-        $("svg.bar_chart").remove();
+        $("svg#bar_chart").remove();
       }
       temp_values = [];
       _ref = this.data.values;
@@ -109,7 +110,7 @@
       chart_right_margin = 60;
       chart_working_height = chart_height - chart_top_margin - chart_bottom_margin;
       value_multiple = chart_working_height / top_label;
-      svg = d3.select("#bar-chart-target").append("svg").classed("bar_chart", true).attr("width", chart_width).attr("height", chart_height);
+      svg = d3.select("#bar-chart-target").append("svg").attr("id", "bar_chart").attr("width", chart_width).attr("height", chart_height);
       ticks = [];
       current_tick = 0;
       while (current_tick <= top_label) {
